@@ -1,0 +1,25 @@
+.compA {
+    border: 1px solid var(--grayColor);
+    border-radius: 50px;
+    padding: 10px 14px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+.icon {
+    transform: rotate(180deg);
+}
+.input {
+    padding: 10px;
+    font-size: 1.4rem;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #fff;
+}
+.button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}

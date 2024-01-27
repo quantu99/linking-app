@@ -1,6 +1,7 @@
 'use client';
+import React from 'react';
 import Image from 'next/image';
-import styles from './page.module.scss';
+import styles from '../page.module.scss';
 import { FaYoutube, FaTiktok, FaInstagram } from 'react-icons/fa';
 import ComponentA from '@/components/componentA/ComponentA';
 import ComponentB from '@/components/componentB/componentB';
@@ -9,32 +10,37 @@ import { useEffect } from 'react';
 import { getAllLink } from '@/redux/apiRequest';
 import ComponentC from '@/components/componentC/ComponentC';
 import Link from 'next/link';
-export default function Home() {
+export default function YoutubePage() {
+    const path = 'youtube';
     const dispatch = useDispatch();
     const social = useSelector((state) => state.link.getAll?.allLink);
-    const url = social?.map((item) => item.url);
+    const fetching = useSelector((state) => state.link.getAll?.isFetching);
+    const url = social?.map((s) => s.url);
+    const youtubeUrls = url?.filter((u) => u.includes('youtube'));
+
     useEffect(() => {
         getAllLink(dispatch);
-    }, [dispatch]);
+    }, []);
+
     const links = [
         {
             title: 'youtube',
-            icon: <FaYoutube size={30} />,
+            icon: <FaYoutube size={30} color={path === 'youtube' && 'red'} />,
         },
         {
             title: 'tiktok',
-            icon: <FaTiktok size={30} />,
+            icon: <FaTiktok size={30} color={path === 'tiktok' && 'pink'} />,
         },
         {
             title: 'instagram',
-            icon: <FaInstagram size={30} />,
+            icon: <FaInstagram size={30} color={path === 'instagram' && 'orange'} />,
         },
     ];
     return (
         <div className={styles.container}>
             <div className={styles.header}>
                 <div className={styles.logoContainer}>
-                    <Link style={{ cursor: 'pointer' }} href="/">
+                    <Link href="/">
                         <Image src="/logo.png" height={60} width={60} alt="logo" className={styles.logo} />
                     </Link>
                     <div className={styles.search}>
@@ -42,11 +48,12 @@ export default function Home() {
                     </div>
                 </div>
                 <div className={styles.menu}>
-                    <ComponentB links={links} />
+                    <ComponentB links={links} path={path} />
                 </div>
             </div>
             <div className={styles.content}>
-                <ComponentC url={url} />
+                <h1>Youtube</h1>
+                <ComponentC url={youtubeUrls} />
             </div>
         </div>
     );
