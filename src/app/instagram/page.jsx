@@ -24,15 +24,15 @@ export default function InstagramPage() {
     const links = [
         {
             title: 'youtube',
-            icon: <FaYoutube size={30} color={path === 'youtube' && 'red'} />,
+            icon: <FaYoutube size={30} color={path === 'youtube' ? 'red' : 'white'} />,
         },
         {
             title: 'tiktok',
-            icon: <FaTiktok size={30} color={path === 'tiktok' && 'pink'} />,
+            icon: <FaTiktok size={30} color={path === 'tiktok' ? 'pink' : 'white'} />,
         },
         {
             title: 'instagram',
-            icon: <FaInstagram size={30} color={path === 'instagram' && 'orange'} />,
+            icon: <FaInstagram size={30} color={path === 'instagram' ? 'orange' : 'white'} />,
         },
     ];
     return (

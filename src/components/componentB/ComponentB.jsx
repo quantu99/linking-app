@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import styles from './ComponentB.module.scss';
 import Link from 'next/link';
