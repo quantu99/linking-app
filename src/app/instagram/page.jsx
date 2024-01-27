@@ -4,7 +4,7 @@ import Image from 'next/image';
 import styles from '../page.module.scss';
 import { FaYoutube, FaTiktok, FaInstagram } from 'react-icons/fa';
 import ComponentA from '@/components/componentA/ComponentA';
-import ComponentB from '@/components/componentB/componentB';
+import ComponentB from '@/components/componentB/ComponentB';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getAllLink } from '@/redux/apiRequest';
