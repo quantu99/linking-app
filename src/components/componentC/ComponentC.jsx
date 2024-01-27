@@ -1,24 +1,19 @@
 'use client';
 import React from 'react';
+import { FaGear } from 'react-icons/fa6';
+import styles from './ComponentC.module.scss';
 const ComponentC = ({ url, fetching }) => {
     return (
-        <div
-            style={{
-                justifyContent: 'flex-end',
-                flexDirection: 'row-reverse',
-                display: 'flex',
-                gap: '30px',
-                padding: '20px',
-                borderRadius: '10px',
-            }}
-            className="a"
-        >
+        <div className={styles.compC}>
             {fetching ? (
-                <p>Loading...</p>
+                <div className={styles.iconContainer}>
+                    <FaGear size={50} className={styles.icon} />
+                    <p>Please wait for loading...</p>
+                </div>
             ) : (
                 <>
                     {url?.map((urlItem, index) => (
-                        <div key={index} className="social-media-iframe-container">
+                        <div key={index} className="iframeContainer">
                             {getIframe(urlItem)}
                         </div>
                     ))}
@@ -30,37 +25,38 @@ const ComponentC = ({ url, fetching }) => {
 const getIframe = (urlItem, index) => {
     const iframeStyle = {
         borderRadius: '10px',
-        width: '100%',
-        height: '400px',
-        maxHeight: '400px',
+        width: '600px',
     };
-    if (urlItem.includes('youtube.com')) {
+    if (urlItem?.includes('youtube.com')) {
         // YouTube iframe
         const videoId = urlItem.split('v=')[1];
         return (
             <iframe
                 style={iframeStyle}
+                height={600}
                 src={`https://www.youtube.com/embed/${videoId}`}
                 title="YouTube Video"
                 allowFullScreen
             ></iframe>
         );
-    } else if (urlItem.includes('tiktok.com')) {
+    } else if (urlItem?.includes('tiktok.com')) {
         // TikTok iframe
         const videoId = urlItem.split('/video/')[1];
         return (
             <iframe
+                height={600}
                 style={iframeStyle}
                 src={`https://www.tiktok.com/embed/v2/${videoId}`}
                 title="TikTok Video"
                 allowFullScreen
             ></iframe>
         );
-    } else if (urlItem.includes('instagram.com')) {
+    } else if (urlItem?.includes('instagram.com')) {
         // Instagram iframe
         const postId = urlItem.split('/p/')[1].split('/')[0];
         return (
             <iframe
+                height={600}
                 key={index}
                 style={iframeStyle}
                 src={`https://www.instagram.com/p/${postId}/embed/`}

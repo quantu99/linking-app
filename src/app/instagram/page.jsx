@@ -16,7 +16,7 @@ export default function InstagramPage() {
     const social = useSelector((state) => state.link.getAll?.allLink);
     const fetching = useSelector((state) => state.link.getAll?.isFetching);
     const url = social?.map((s) => s.url);
-    const instagramUrls = url?.filter((u) => u.includes('instagram'));
+    const instagramUrls = url?.filter((u) => u?.includes('instagram'));
     useEffect(() => {
         getAllLink(dispatch);
     }, []);
@@ -52,7 +52,7 @@ export default function InstagramPage() {
             </div>
             <div className={styles.content}>
                 <h1>Instagram</h1>
-                <ComponentC url={instagramUrls} />
+                <ComponentC fetching={fetching} url={instagramUrls} />
             </div>
         </div>
     );

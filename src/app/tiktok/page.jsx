@@ -12,13 +12,11 @@ import ComponentC from '@/components/componentC/ComponentC';
 import Link from 'next/link';
 export default function TiktokPage() {
     const path = 'tiktok';
-
     const dispatch = useDispatch();
     const social = useSelector((state) => state.link.getAll?.allLink);
     const fetching = useSelector((state) => state.link.getAll?.isFetching);
     const url = social?.map((s) => s.url);
-    const tiktokUrls = url?.filter((u) => u.includes('tiktok'));
-
+    const tiktokUrls = url?.filter((u) => u?.includes('tiktok'));
     useEffect(() => {
         getAllLink(dispatch);
     }, []);
@@ -54,7 +52,7 @@ export default function TiktokPage() {
             </div>
             <div className={styles.content}>
                 <h1>Tiktok</h1>
-                <ComponentC url={tiktokUrls} />
+                <ComponentC url={tiktokUrls} fetching={fetching} />
             </div>
         </div>
     );

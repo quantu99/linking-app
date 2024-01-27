@@ -1,0 +1,33 @@
+@keyframes animation {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.iconContainer {
+    display: flex;
+    margin: 100px auto;
+    gap: 30px;
+    align-items: center;
+    p {
+        font-size: 3rem;
+    }
+}
+.icon {
+    animation: animation 2s linear infinite;
+    color: #c4c417;
+}
+.iframeContainer {
+    width: 100%;
+}
+.compC {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+    border-radius: 10px;
+}

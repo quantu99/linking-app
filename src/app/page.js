@@ -12,6 +12,7 @@ import Link from 'next/link';
 export default function Home() {
     const dispatch = useDispatch();
     const social = useSelector((state) => state.link.getAll?.allLink);
+    const fetching = useSelector((state) => state.link.getAll?.isFetching);
     const url = social?.map((item) => item.url);
     useEffect(() => {
         getAllLink(dispatch);
@@ -30,6 +31,7 @@ export default function Home() {
             icon: <FaInstagram size={30} />,
         },
     ];
+
     return (
         <div className={styles.container}>
             <div className={styles.header}>
@@ -46,7 +48,7 @@ export default function Home() {
                 </div>
             </div>
             <div className={styles.content}>
-                <ComponentC url={url} />
+                <ComponentC url={url} fetching={fetching} />
             </div>
         </div>
     );

@@ -19,7 +19,26 @@
     color: #fff;
 }
 .button {
+    position: relative;
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
+.button:hover .notification {
+    transition: all 0.2s ease-out;
+    display: block;
+}
+.notification {
+    display: none;
+    position: absolute;
+    background-color: #fdfd6f;
+    padding: 10px 20px;
+    color: var(--darkColor);
+    font-weight: 500;
+    width: 150px;
+    top: 160%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 0px 5px var(--darkColor);
+    font-size: 1.3rem;
 }

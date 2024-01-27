@@ -16,7 +16,7 @@ export default function YoutubePage() {
     const social = useSelector((state) => state.link.getAll?.allLink);
     const fetching = useSelector((state) => state.link.getAll?.isFetching);
     const url = social?.map((s) => s.url);
-    const youtubeUrls = url?.filter((u) => u.includes('youtube'));
+    const youtubeUrls = url?.filter((u) => u?.includes('youtube'));
 
     useEffect(() => {
         getAllLink(dispatch);
@@ -53,7 +53,7 @@ export default function YoutubePage() {
             </div>
             <div className={styles.content}>
                 <h1>Youtube</h1>
-                <ComponentC url={youtubeUrls} />
+                <ComponentC url={youtubeUrls} fetching={fetching} />
             </div>
         </div>
     );
