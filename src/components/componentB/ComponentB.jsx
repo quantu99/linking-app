@@ -2,18 +2,13 @@
 import React from 'react';
 import styles from './ComponentB.module.scss';
 import Link from 'next/link';
-const ComponentB = ({ links }) => {
-    function capitalizeString(str) {
-        return str.replace(/\b\w/g, function (l) {
-            return l.toUpperCase();
-        });
-    }
+const ComponentB = ({ url }) => {
     return (
         <div className={styles.compB}>
-            {links.map((link) => (
-                <Link href={`/${link.title}`} key={link.title} className={styles.linkContainer}>
-                    {link.icon}
-                    <div className={styles.notification}>{capitalizeString(link.title)}</div>
+            {url?.map((item, index) => (
+                <Link target="__blank" href={item} style={{ display: 'flex', gap: '10px' }}>
+                    <span>{index + 1}.</span>
+                    <span key={item}>{item}</span>
                 </Link>
             ))}
         </div>
