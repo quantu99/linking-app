@@ -53,7 +53,7 @@ const getIframe = (urlItem, index) => {
         );
     } else if (urlItem?.includes('instagram.com')) {
         // Instagram iframe
-        const postId = urlItem.split('/p/')[1].split('/')[0];
+        const postId = urlItem.split('/p/')[1]?.split('/')[0] || urlItem.split('/reel/')[1]?.split('/')[0];
         return (
             <iframe
                 height={600}

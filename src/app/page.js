@@ -31,7 +31,6 @@ export default function Home() {
             icon: <FaInstagram size={30} />,
         },
     ];
-
     return (
         <div className={styles.container}>
             <div className={styles.header}>
