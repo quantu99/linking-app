@@ -2,9 +2,11 @@
 import React from 'react';
 import { FaGear } from 'react-icons/fa6';
 import styles from './ComponentC.module.scss';
+import { v4 as uuidv4 } from 'uuid';
+
 const ComponentC = ({ url, fetching }) => {
     return (
-        <div className={styles.compC}>
+        <div key={uuidv4()} className={styles.compC}>
             {fetching ? (
                 <div className={styles.iconContainer}>
                     <FaGear size={50} className={styles.icon} />
