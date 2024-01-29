@@ -66,13 +66,8 @@ export default function YoutubePage() {
                                     <div className={styles.notification}>{capitalizeString(link.title)}</div>
                                 </Link>
                             ) : (
-                                <label className={styles.linkContainer}>
-                                    <div
-                                        htmlFor="checkbox"
-                                        href={`/${link.title}`}
-                                        key={link.title}
-                                        className={styles.listContainer}
-                                    >
+                                <label key={link.title} className={styles.linkContainer}>
+                                    <div htmlFor="checkbox" href={`/${link.title}`} className={styles.listContainer}>
                                         {link.icon}
                                     </div>
                                     <input type="checkbox" className={styles.checkbox} id="checkbox" />
